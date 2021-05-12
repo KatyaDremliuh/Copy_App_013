@@ -169,27 +169,23 @@ var questions = [{
 }];
 
 
-var userAnwer = new Array;
-var score = 0;
-
-
-var userAnwer = new Array;
-var score = 0;
+var userAnwer = new Array; // здесь ответы юзера
+var score = 0; // баллы за верные ответы
 
 function Engine(question, answer) {
   userAnwer[question] = answer;
 }
 
+
 function Score() {
   var answerText = "Вы неправильно ответили на вопросы:\n"; // showErrors(CC7), котрое не работает
   for (var m = 0; m < userAnwer.length; ++m) {
     var num = m + 1;
-    answerText = answerText + "\n    №" + num + ".";
+    answerText = answerText + "\n№" + num + ".";
     if (userAnwer[m] != questions[m].correctAnswer) {
       answerText = `${answerText} ${questions[m].text}\n`
-
     } else {
-      //answerText = answerText + ": Верно! \n";
+      answerText = answerText + ": Верно! \n"; // это не нужно
       ++score;
     }
   }
