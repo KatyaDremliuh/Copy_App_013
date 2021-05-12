@@ -96,6 +96,28 @@ function createСorrectAnsws() {
 }
 
 
+// действие кнопки начать тест
+function clickStartTest() {
+
+  // 1) надо заблокировать сразу обе кнопки. не понятно, как
+
+
+  // 2) отвечать на вопрос
+  changeCheckbox() {
+    var checkbox = document.getElementById("idCheckbox")
+    var checkbox = event.target;
+    var isChecked = checkbox.checked;
+    if (checkbox.checked && checkbox.onchange === isChecked) {
+
+    } else {
+
+    }
+  }
+
+  // 3) результат 
+}
+
+
 // СОЗДАТЬ ВОПРОСЫ и ОТВЕТЫ (видимые)
 // taskName - это массивы???
 function drawQuestsAndAnsws(taskName, allQArr, answsArr) {
@@ -136,10 +158,68 @@ function createCheckbox() {
 }
 
 
-// действие кнопки начать тест
-function clickStartTest() {
 
-  // 1) надо заблокировать сразу обе кнопки. не понятно, как
-  // 2) отвечать на вопрос
-  // 3) результат 
+// ЭТО КАК-ТО ОТНОСИТСЯ К СТРОКЕ 121
+
+// Это наши вопросы
+var questions = [{
+  text: [allQArr],
+  answers: [answsArr], // не добавлены ответы по умолчанию из createAnswerOption стр. 59
+  correctAnswer: [cAArr] // то же самое
+}];
+
+
+var userAnwer = new Array;
+var score = 0;
+
+
+var userAnwer = new Array;
+var score = 0;
+
+function Engine(question, answer) {
+  userAnwer[question] = answer;
+}
+
+function Score() {
+  var answerText = "Вы неправильно ответили на вопросы:\n"; // showErrors(CC7), котрое не работает
+  for (var m = 0; m < userAnwer.length; ++m) {
+    var num = m + 1;
+    answerText = answerText + "\n    №" + num + ".";
+    if (userAnwer[m] != questions[m].correctAnswer) {
+      answerText = `${answerText} ${questions[m].text}\n`
+
+    } else {
+      //answerText = answerText + ": Верно! \n";
+      ++score;
+    }
+  }
+
+
+  answerText = answerText + "\nВаш результат " + score + " из " + userAnwer.length;
+
+  alert(answerText);
+  userAnwer = [];
+  score = 0;
+  clearForm("quiz");
+}
+
+
+function clearForm(name) {
+  var f = document.forms[name];
+  for (var i = 0; i < f.elements.length; ++i) {
+    if (f.elements[i].checked)
+      f.elements[i].checked = false;
+  }
+}
+
+
+for (var q = 0; q < questions.length; ++q) {
+  var question = questions[q];
+  var idx = 1 + q;
+
+  document.writeln('<li><span class="quest">' + question.text + '</span><br/>');
+  for (var i in question.answers) {
+    document.writeln('<input type=checkbox name="q' + idx + '" value="' + i +
+      '" onClick="Engine(' + q + ', this.value)">' + question.answers[i] + '<br/>');
+  }
 }

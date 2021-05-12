@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-        <script src="Copy-1.js"></script>
+    <script src="Copy-1.js"></script>
 </head>
+
 <body>
 
     <button onclick="createQuestion()">Добавить вопрос</button>
     <br>
     <button onclick="clickStartTest()">Начать тест</button>
 
+    <input id="idCheckbox" type="checkbox" onchange="changeCheckbox(event)">
+
+
+    <style>
+        span.quest {
+            font-weight: bold;
+        }
+    </style>
+
+    <form name="quiz">
+        <ol>
+            <script>
+
+            </script>
+        </ol>
+        <input type="button" onClick="Score()" value="Отправить" />
+
+
+
 </body>
+
 </html>
