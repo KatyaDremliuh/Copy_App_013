@@ -46,7 +46,7 @@ function createQuestion() {
     }
   }
   var allQArr = defaultQArr.concat(createQArr);
-  return allQArr.forEach; // вернуть массив всех вопросов
+  return allQArr; // вернуть массив всех вопросов
 }
 
 
