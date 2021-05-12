@@ -1,9 +1,10 @@
 // кнопка добавить вопрос
-var button = document.createElement("button"); // сама кнопка
+/*var button = document.createElement("button"); // сама кнопка
 var text = document.createTextNode("Добавить вопрос"); // создать текст на кнопке
 var text = document.createTextNode("Начать тест"); // кнопка начать тест
 button.appendChild(text); // чтобы текст появился на кнопке
 button.body.appendChild(button); // приделать эту кнопку к html ???
+*/
 
 
 // ОШИБКИ
@@ -103,7 +104,7 @@ function clickStartTest() {
 
 
   // 2) отвечать на вопрос
-  changeCheckbox() {
+  /*function changeCheckbox() {
     var checkbox = document.getElementById("idCheckbox")
     var checkbox = event.target;
     var isChecked = checkbox.checked;
@@ -113,7 +114,7 @@ function clickStartTest() {
 
     }
   }
-
+*/
   // 3) результат 
 }
 
